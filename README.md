@@ -1,38 +1,30 @@
-# Empty
+# GrantFlow KE
 
-A blank canvas — the minimal jac-shadcn starter the other templates are built on.
+A demo-safe Kenyan community grant review workspace. It uses seeded records and a deterministic Jac rules engine; core demo use requires no API keys, external services, uploads, or login.
 
-One client page, the violet theme wired up, and nothing else in the way. Start
-here when none of the other templates fit, and describe what you want to build.
+## Demo script (5 minutes)
 
-## What you get
+1. Open the Overview and note the three seeded applications.
+2. Select Amina Wanjiku’s Nairobi classroom project, then choose **Run Review Agents**. Inspect the four scored agent results and audit entry.
+3. Select the Kisumu community garden application to inspect missing constitution and bank evidence.
+4. Select the Nakuru youth workshop to review its mismatched budget, concentrated cost, invalid dates, and safeguarding gap.
+5. Record a reviewer decision, generate a deterministic decision report, and switch between Applicant and Reviewer roles.
+6. Use **Reset Demo Data** to restore the three seeded scenarios.
+7. Use Rules & guide to adjust the configurable general funding cap and follow the demo guide.
 
-- `main.jac` — a `cl { }` block with a single `def:pub app()` page (a centered
-  card). This is the whole app.
-- `components/ui/` — the two jac-shadcn primitives (`Button`, `Card`) the page
-  uses. Add more with `jac add --shadcn <name>`.
-- `styles/global.css` — semantic design tokens and the theme, already wired up.
-- `lib/utils.jac` — `cn()` for merging class names.
+## Architecture
 
-## Run it
+- `services/grants.jac` contains seeded application records, the four deterministic checks, recommendations, reports, role switch, cap update, and audit entries.
+- `components/GrantReview.jac` owns the responsive review workspace and calls its Jac service functions.
+- `main.jac` mounts the workspace and themed Tailwind stylesheet.
+- Jac keeps the workflow local to the app. The rule engine is repeatable for identical input and reports its findings without an external model.
 
-```bash
-jac install
-jac start --dev
-```
+The seeded scenarios are initialized on app startup. Demo state is in-memory and resets when the service process restarts; the visible reset control restores the exact seeded set and clears generated audit and decision changes.
 
-Open <http://localhost:8000>.
+## Optional GenAI narrative
 
-## Where to go next
+Narrative enhancement is intentionally disabled (`ENABLE_GENAI = False`). There is no provider call in this reliability-first build; deterministic scoring, recommendations, and report copy always work offline. If a provider enhancement is added later, it must remain narrative-only, have a timeout and exception fallback, and must never alter rule results. No environment variables are required for this demo.
 
-- **Add a page / routing** — create a `pages/` directory; files become routes
-  by convention. See `jac guide jac-cl-routing`.
-- **Add a backend** — create `services/foo.sv.jac` with `def:pub` functions;
-  each becomes a `POST /function/<name>` REST endpoint automatically, and data
-  hung off `root` persists with no database to set up (Jac stores the graph for
-  you — SQLite in `.jac/data/` by default, MongoDB via `MONGODB_URI`). See
-  `jac guide jac-sv-endpoints` and `jac guide jac-sv-persistence`.
-- **Add auth** — see `jac guide jac-sv-auth` and `jac guide jac-cl-auth`.
+## Run
 
-`AGENTS.md` lists the reference guides bundled with the compiler; read them
-before writing Jac — the syntax is easy to confuse with Python or JSX.
+Use Jac 0.34.23 or compatible. Install project dependencies with `jac install`, then start the app with `jac start --dev main.jac`.
