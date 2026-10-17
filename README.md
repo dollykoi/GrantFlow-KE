@@ -94,7 +94,7 @@ Recommended source tree for the GitHub submission. Internal Jac Hammer artifacts
 ├── lib/
 │   └── utils.jac
 ├── styles/
-│   └── global.css├── final_demo_script.md
+│   └── global.css
 ├── written_description.md
 ├── project_story.md
 └── pitch_deck/
