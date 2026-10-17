@@ -1,2 +1,8 @@
 .jac/
 node_modules/
+.jaccoder/
+screenshots/
+tool-results/
+agent_journal.md
+build_plan.json
+dist/
