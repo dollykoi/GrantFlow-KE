@@ -97,7 +97,6 @@ Recommended source tree for the GitHub submission. Internal Jac Hammer artifacts
 │   └── global.css
 ├── final_demo_script.md
 ├── written_description.md
-├── project_story.md
 └── pitch_deck/
     └── grantflow_ke_pitch.pptd
 ```
