@@ -96,8 +96,7 @@ Recommended source tree for the GitHub submission. Internal Jac Hammer artifacts
 ├── styles/
 │   └── global.css
 ├── project_story.md
-└── pitch_deck/
-    └── grantflow_ke_pitch.pptd
+└── grantflow_ke_pitch.pptd
 ```
 
 If your local file names differ, keep the same rule: commit source, docs, config, and presentation files; exclude tool logs and generated preview output.
