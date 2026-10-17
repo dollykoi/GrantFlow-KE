@@ -99,7 +99,6 @@ Recommended source tree for the GitHub submission. Internal Jac Hammer artifacts
 └── grantflow_ke_pitch.pptd
 ```
 
-If your local file names differ, keep the same rule: commit source, docs, config, and presentation files; exclude tool logs and generated preview output.
 
 ## Setup
 
@@ -167,15 +166,6 @@ If the preview looks stale or duplicated, refresh the browser and click Reset De
 - Add optional GenAI wording polish with deterministic fallback
 - Add analytics for fund managers
 
-## Submission assets
-
-Update these before final submission:
-
-- GitHub link: add your repo link here
-- Hosted preview: add your Jac Hammer link here
-- Demo video: add your video link here
-- Pitch deck: use the included pitch deck file
-- Written description: use the included written description
 
 ## Hackathon statement
 
